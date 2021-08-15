@@ -23,7 +23,6 @@ class Ticket(models.Model):
 
     event = models.ForeignKey(Event, on_delete=models.PROTECT)
     seat_number = models.CharField(max_length=64)
-    status = models.CharField(choices=TICKET_STATUS_CHOICES, max_length=64)
     selling_option = models.CharField(choices=SELLING_OPTION_CHOICES, max_length=64, null=True)
 
 
