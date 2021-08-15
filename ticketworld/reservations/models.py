@@ -34,5 +34,5 @@ class Reservation(models.Model):
         (ReservationStatus.FAILED, 'Failed')
     )
     tickets = models.ManyToManyField(Ticket, related_name='reservations')
-    date = models.DateTimeField(default=datetime.now)
+    date_created = models.DateTimeField(default=datetime.now)
     status = models.CharField(choices=RESERVATION_STATUS, max_length=64, default=ReservationStatus.OPEN)
