@@ -27,9 +27,4 @@ class Reservation(models.Model):
     )
     tickets = models.ManyToManyField(Ticket, related_name='reservations')
     date = models.DateTimeField(default=datetime.now)
-    status = models.CharField(choices=RESERVATION_STATUS, max_length=64)
-
-
-class TicketReservation(models.Model):
-    ticket = models.ForeignKey(Ticket, on_delete=models.PROTECT)
-    reservation = models.ForeignKey(Reservation, on_delete=models.PROTECT)
+    status = models.CharField(choices=RESERVATION_STATUS, max_length=64, default=ReservationStatus.OPEN)
