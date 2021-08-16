@@ -9,6 +9,12 @@
 
 # Local Development
 
+As mentioned above, this project is based on [Cookiecutter Django Rest](https://github.com/agconti/cookiecutter-django-rest) and contains some code that is not written by me.
+
+**[IMPORTANT] My code can be found in the `ticketworld/reservations` module.**
+
+
+
 Start the dev server for local development:
 ```bash
 docker-compose up
