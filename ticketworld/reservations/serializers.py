@@ -29,7 +29,7 @@ class ReservationCreateSerializer(serializers.ModelSerializer):
         errors = validation_service.validate_selling_options()
 
         if errors:
-            raise serializers.ValidationError(errors)
+            raise serializers.ValidationError({'msg': errors})
 
         return tickets
 
