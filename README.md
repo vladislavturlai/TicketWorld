@@ -1,9 +1,7 @@
 # TicketWorld
 
-[![Build Status](https://travis-ci.org/vladislavturlai/TicketWorld.svg?branch=master)](https://travis-ci.org/vladislavturlai/TicketWorld)
 [![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
 
-Its all about a Weissman score > 5.0. Check out the project's [documentation](http://vladislavturlai.github.io/TicketWorld/).
 
 # Prerequisites
 
@@ -20,4 +18,9 @@ Run a command inside the docker container:
 
 ```bash
 docker-compose run --rm web [command]
+```
+
+Restore dummy data (a couple of Events and Tickets available for reservation)
+```bash
+docker-compose run --rm web python manage.py loaddata ticketworld/reservations/fixtures/initial_data.json
 ```
