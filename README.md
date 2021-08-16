@@ -30,3 +30,7 @@ Restore dummy data (a couple of Events and Tickets available for reservation)
 ```bash
 docker-compose run --rm web python manage.py loaddata ticketworld/reservations/fixtures/initial_data.json
 ```
+
+There are two endpoints available(local development):
+- `GET localhost:8000/api/v1/reservations/` - retrieve reservations and associated tickets
+- `POST localhost:8000/api/v1/reservations/` Body ```{"tickets": [1, 2]}```
