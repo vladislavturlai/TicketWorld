@@ -9,24 +9,34 @@ class Event(models.Model):
     title = models.CharField(max_length=512)
 
 
+class AvailableManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().exclude(reservations__status__in=Reservation.RESERVATION_ACTIVE_STATUSES)
+
+
+class UnavailableManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(reservations__status__in=Reservation.RESERVATION_ACTIVE_STATUSES)
+
+
 class Ticket(models.Model):
-    TICKET_STATUS_CHOICES = (
-        ('RESERVED', 'Reserved'),
-        ('TMP_RESERVED', 'Temporarily reserved'),
-        ('FREE', 'Free')
-    )
     SELLING_OPTION_CHOICES = (
         (SellingOptions.EVEN, 'Even'),
         (SellingOptions.ALL_TOGETHER, 'All together'),
         (SellingOptions.AVOID_ONE, 'Avoid one')
     )
 
-    event = models.ForeignKey(Event, on_delete=models.PROTECT)
-    seat_number = models.CharField(max_length=64)
+    event = models.ForeignKey(Event, on_delete=models.PROTECT, related_name='tickets')
+    seat_number = models.IntegerField()
     selling_option = models.CharField(choices=SELLING_OPTION_CHOICES, max_length=64, null=True)
+
+    objects = models.Manager()
+    available = AvailableManager()
+    unavailable = UnavailableManager()
 
 
 class Reservation(models.Model):
+    RESERVATION_ACTIVE_STATUSES = [ReservationStatus.OPEN, ReservationStatus.PAID, ReservationStatus.PARTIALLY_PAID]
     RESERVATION_STATUS = (
         (ReservationStatus.OPEN, 'Open'),
         (ReservationStatus.PAID, 'Paid'),
