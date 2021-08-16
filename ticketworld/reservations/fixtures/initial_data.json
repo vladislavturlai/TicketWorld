@@ -1,0 +1,88 @@
+[
+{
+    "model": "reservations.event",
+    "pk": 1,
+    "fields": {
+        "title": "Radiohead concert"
+    }
+},
+{
+    "model": "reservations.event",
+    "pk": 2,
+    "fields": {
+        "title": "Opener festival"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 1,
+    "fields": {
+        "event": 2,
+        "seat_number": 1,
+        "selling_option": "EVEN"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 2,
+    "fields": {
+        "event": 2,
+        "seat_number": 2,
+        "selling_option": "EVEN"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 3,
+    "fields": {
+        "event": 2,
+        "seat_number": 3,
+        "selling_option": "AVOID_ONE"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 4,
+    "fields": {
+        "event": 2,
+        "seat_number": 4,
+        "selling_option": "ALL_TOGETHER"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 5,
+    "fields": {
+        "event": 2,
+        "seat_number": 5,
+        "selling_option": "EVEN"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 6,
+    "fields": {
+        "event": 2,
+        "seat_number": 6,
+        "selling_option": "EVEN"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 7,
+    "fields": {
+        "event": 2,
+        "seat_number": 7,
+        "selling_option": "AVOID_ONE"
+    }
+},
+{
+    "model": "reservations.ticket",
+    "pk": 8,
+    "fields": {
+        "event": 2,
+        "seat_number": 8,
+        "selling_option": "ALL_TOGETHER"
+    }
+}
+]
